@@ -6,12 +6,15 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    number = (number*number)**(1/2)  
+    return number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
-
+    liste = []
+    for letter in prefixes:
+        liste.append()
     return [""]
 
 
@@ -27,8 +30,23 @@ def use_continue() -> None:
     pass
 
 
-def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+def verify_ages(groups: list[list[int]]) -> list[bool]:
+    result = ""
+    space = " "
+    for groupe in groups:
+        if len(groupe) <= 3 or len(groupe) > 10:
+            result += str(False) + space
+            continue
+        if 25 in groupe:
+            result += str(True) + space
+            continue
+        if min(groupe) < 10:
+            result += str(False) + space
+        if max(groupe) > 70 and 50 in groupe:
+            result += str(False) + space
+            continue
+        result += str(True) + space
+    return [result.split()]
 
 
 def main() -> None:
