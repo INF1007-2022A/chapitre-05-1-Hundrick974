@@ -14,20 +14,39 @@ def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
     liste = []
     for letter in prefixes:
-        liste.append()
-    return [""]
+        liste.append(letter + suffixe)
+    return liste
 
 
 def prime_integer_summation() -> int:
-    return 0
+    somme = 0
+    compteur = 0
+    nombre = 2
+    while compteur < 100:
+        for i in range(nombre-1, 0, -1):
+            if nombre % i == 0:
+                break
+        if i == 1:
+            somme += nombre
+            compteur += 1
+        nombre += 1
+    return somme
 
 
 def factorial(number: int) -> int:
-    return 0
+    factoriel = 1
+    while number != 1:
+        factoriel *= number
+        number -= 1
+    return factoriel
 
 
 def use_continue() -> None:
-    pass
+    for i in range(1, 11):
+        if i == 5:
+            continue
+
+        print(i)
 
 
 def verify_ages(groups: list[list[int]]) -> list[bool]:
@@ -40,8 +59,9 @@ def verify_ages(groups: list[list[int]]) -> list[bool]:
         if 25 in groupe:
             result += str(True) + space
             continue
-        if min(groupe) < 10:
+        if min(groupe) < 18:
             result += str(False) + space
+            continue
         if max(groupe) > 70 and 50 in groupe:
             result += str(False) + space
             continue
